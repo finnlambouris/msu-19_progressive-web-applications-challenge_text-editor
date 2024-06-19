@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const { InjectManifest } = require('workbox-webpack-plugin');
 
@@ -14,6 +14,7 @@ module.exports = () => {
     output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
+      publicPath: '/',
     },
     plugins: [
       new HtmlWebpackPlugin({
@@ -22,13 +23,18 @@ module.exports = () => {
       }),
       new MiniCssExtractPlugin(),
       new InjectManifest({
-        swSrc: './src/sw.js',
+        swSrc: './src-sw.js',
+        swDest: 'src-sw.js',
       }),
       new WebpackPwaManifest({
+        start_url: '/',
         name: 'jate',
+        short_name: 'jate',
         description: 'a text editor PWA',
-        background_color: '#ffffff',
-        crossorigin: 'use-credentials',
+        theme_color: '#225ca3',
+        background_color: '#225ca3',
+        orientation: 'portrait',
+        display: 'standalone',
         icons: [
           {
             src: path.resolve('./src/images/logo.png'),
