@@ -6,8 +6,8 @@ I WANT to create notes or code snippets with or without an internet connection<b
 SO THAT I can reliably retrieve them for later use
 
 ## Deployed Application
-[Application Photo]()
-[Deployed Application]()
+![Application Photo](./deployed-application.png)
+[Deployed Application](https://msu-19-progressive-web-applications.onrender.com)
 
 ## Installation
 N/A
